@@ -14,9 +14,9 @@ markdown: kramdown
 
 
 ### content configuration ###
-title:       "Glass Creek Link - a bicycle route proposal"
-keywords:    "bicycle, boroondara, bike, glass creek, project, bicycle path, route, balwyn, deepdene, kew east, east kew"
-description: "A proposal for a safe and direct bicycle route through Balwyn, Deepdene and Kew East"
+title:       "Jacka Trail - a bicycle route proposal"
+keywords:    "bicycle, boroondara, bike, jacka street, project, bicycle path, route, balwyn, north balwyn, balwyn north, kew east, east kew"
+description: "A proposal for a safe and direct bicycle route linking North Balwyn to the Koonung Creek Trail"
 source_link: "https://github.com/t413/SinglePaged"
 favicon:     "img/favicon.ico"
 touch_icon:  "img/apple-touch-icon.png"
