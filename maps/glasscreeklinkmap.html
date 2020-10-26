@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<style>
+#map {
+    position: fixed;
+    width:50%;
+}
+#features {
+    width: 50%;
+    margin-left: 50%;
+    font-family: sans-serif;
+    overflow-y: scroll;
+    background-color: #fafafa;
+}
+section {
+    padding:  25px 50px;
+    line-height: 25px;
+    border-bottom: 1px solid #ddd;
+    opacity: 0.25;
+    font-size: 13px;
+}
+section.active {
+    opacity: 1;
+}
+section:last-child {
+    border-bottom: none;
+    margin-bottom: 400px;
+}
+</style>
+
+<div id='map'></div>
+<div id='features'>
+    <section id='glass-creek-link-overview' class='active'>
+        <h3>Glass Creek Link - Overview</h3>
+        <p>The Glass Creek Link proposes the creation of a safe and direct north-south bicycle route linking the Koonung Creek and Anniversary Trails. It would serve multiple functions in Kew East, Balwyn and Deepdene including local travel, school transport and recreation.</p>
+    </section>
+    <section id='anniversary' class='active'>
+        <h3>Anniversary Trail, Deepdene</h3>
+        <p>The southern beginning of the Glass Creek Link, the Anniversary Trail is one of the most popular bicycle and pedestrian routes in Boroondara. The Glass Creek Link would begin at existing the pedestrian lights on Cotham Road. A small section of new shared path will need to be designated on the north side of Cotham Road. This should not be a significant issue with the single unused driveway and space available for such a change.</p>
+    </section>
+    <section id='king-street-chain'>
+        <h3>King Street Chain</h3>
+        <p>A series of linear parks follow the course of W Creek which used to flow through this part of Boroondara and flow into Glass Creek. After coming off Gordon Street, the route connects to the existing off-road path through this park. The path runs through to King Street and it is only a short distance on-road before re-connecting to the linear parkland further north.</p>
+    </section>
+    <section id='birdwood-street'>
+        <h3>Birdwood Street</h3>
+        <p>At the end of the shared path through the King Street Chain, another short on-road section will be required to access the path continuing north. Treatments could include pram ramps, traffic calming and on-road markings. This park already contains a shared path that crosses Head Street and reaches Belmore Road.</p>
+    </section>
+    <section id='belmore-road'>
+        <h3>Belmore Road</h3>
+        <p>No crossing facilities currently exist at this location, making it difficult and unsafe to cross between the two parks. Crossing signals for path users would be ideal to navigate north into Nicholson Street Reserve and beyond. If this is not possible, a shared path should be constructed on the south side to allow path users to cross into Stradbroke Park at the existing Belmore/Burke Road intersection.</p>
+    </section>
+    <section id='burke-road-crossing'>
+        <h3>Burke Road Crossing</h3>
+        <p>Should the preferred route through Nicholson Street and Maylands Avenue be pursued, a signalised crossing would be necessary between on Burke Road between Maylands Avenue and Lawrence Street. This would allow access into Stradbroke Park via Lawrence Street and also open up opportunities for an east-west route through to Macleay and Hislop Parks.</p>
+    </section>
+    <section id='stradbroke-park'>
+        <h3>Stradbroke Park</h3>
+        <p>The route would follow the existing path north through Stradbroke Park, linking with the existing shared path at Harrison Reserve after crossing High Street. Opportunities potentially exist for separating pedestrians and cyclists at this point as shown by the prevalence of desire lines in this portion of the park.</p>
+    </section>
+    <section id='hays-paddock'>
+        <h3>Hays Paddock</h3>
+        <p>After crossing Glass Street and Kilby Road, the route enters Hays Paddock. Path users would follow the existing eastern path past the Glass Creek drain outlet and continue up to Newbury Street.</p>
+    </section>
+    <section id='lister-street'>
+        <h3>Lister Street</h3>
+        <p>At the corner of Lister and Newbury Streets, two separate routes should be considered. One should follow the existing eastern path alongside the sporting ovals for recreational low-speed cyclists, such as children. The other should cater for utility and commuter cyclists by providing on-road facilities along Lister Street, running parallel to Hays Paddock. This provides separation of pedestrians and cyclists in this area. The two routes reconnect at Keystone Crescent.</p>
+    </section>
+    <section id='keystone-crescent'>
+        <h3>Keystone Crescent</h3>
+        <p>Path users can follow Keystone Crescent to the north-east to Old Burke Road. As with other sections, this will require some on-road treatments and signage to make the route useable and safe.</p>
+    </section>
+   <section id='koonung-creek'>
+        <h3>Koonung Creek Trail</h3>
+        <p>The final connection of the Glass Creek Link is at the intersection of the Koonung Creek and Main Yarra Trails. The existing shared path from Old Burke Road will need some works to improve safety, but costs would not be significant. Linking these two major bicycle and pedestrian routes will greatly improve accessibility and connectivity throughout northern Boroondara and beyond.</p>
+        <small id="citation">
+            Created with <a href='http://www.mapbox.com'>Mapbox</a>
+        </small>
+    </section>
+</div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicGhpbGFtIiwiYSI6ImNpbmk1OGI1MDB3dmt1a20zeDZ5ejRnemsifQ.jfEJAMTg8tCqE2KI2tuAzQ';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/philam/cj3awvcwk000e2ro1m04r4dqc',
+    center: [145.062743, -37.800653],
+    zoom: 13.8,
+    bearing: 5,
+    pitch: 35
+});
+
+var chapters = {
+	'glass-creek-link-overview': {
+		duration: 2000,
+        bearing: 5,
+		center: [145.062743, -37.800653],
+        zoom: 13.8,
+        pitch: 35
+    },
+    'anniversary': {
+		duration: 3000,
+        bearing: 27,
+        center: [145.063667, -37.810686],
+        zoom: 16.5,
+        pitch: 20
+    },
+    'king-street-chain': {
+        duration: 3000,
+        center: [145.066144, -37.807415],
+        bearing: 15,
+        zoom: 17,
+        pitch: 30
+    },
+    'birdwood-street': {
+        duration: 3000,
+		bearing: 5,
+        center: [145.065565, -37.803281],
+        zoom: 17.5,
+        pitch: 10
+    },
+    'belmore-road': {
+	    duration: 3000,
+        bearing: 330,
+        center: [145.062743, -37.800653],
+        zoom: 16.3,
+		pitch: 40
+    },
+    'burke-road-crossing': {
+        bearing: 5,
+        center: [145.063097, -37.797957],
+        zoom: 16.9,
+        pitch: 0,
+        speed: 0.5
+    },
+    'stradbroke-park': {
+		duration: 3000,
+        bearing: 355,
+        center: [145.061294, -37.795506],
+        zoom: 17.3,
+		pitch: 30
+    },
+    'hays-paddock': {
+		duration: 3000,
+        bearing: 2,
+        center: [145.060060, -37.791988],
+        zoom: 16.8,
+        pitch: 20
+    },
+    'lister-street': {
+		duration: 3000,
+        bearing: 5,
+        center: [145.060021, -37.788435],
+        zoom: 16.1,
+        pitch: 5
+    },
+	 'keystone-crescent': {
+		duration: 3000,
+        bearing: 350,
+        center: [145.061478, -37.786852],
+        zoom: 17.3,
+        pitch: 40
+    },
+	'koonung-creek': {
+		duration: 3000,
+        bearing: 45,
+        center: [145.063972, -37.785364],
+        zoom: 16.7,
+        pitch: 10
+    }
+};
+
+// On every scroll event, check which element is on screen
+window.onscroll = function() {
+    var chapterNames = Object.keys(chapters);
+    for (var i = 0; i < chapterNames.length; i++) {
+        var chapterName = chapterNames[i];
+        if (isElementOnScreen(chapterName)) {
+            setActiveChapter(chapterName);
+            break;
+        }
+    }
+};
+
+var activeChapterName = 'glass-creek-link-overview';
+function setActiveChapter(chapterName) {
+    if (chapterName === activeChapterName) return;
+
+    map.flyTo(chapters[chapterName]);
+
+    document.getElementById(chapterName).setAttribute('class', 'active');
+    document.getElementById(activeChapterName).setAttribute('class', '');
+
+    activeChapterName = chapterName;
+}
+
+function isElementOnScreen(id) {
+    var element = document.getElementById(id);
+    var bounds = element.getBoundingClientRect();
+    return bounds.top < window.innerHeight && bounds.bottom > 0;
+}
+
+</script>
+
+</body>
+</html>
