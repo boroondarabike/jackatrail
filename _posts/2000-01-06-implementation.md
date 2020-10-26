@@ -32,9 +32,9 @@ No existing signage exists. New wayfinding infrastructure would need to be imple
 
 ## Main road crossings
 
-There are two unsafe crossing points that are crucial to the success of this project: Belmore Road and Burke Road.
+There are two unsafe crossing points that are crucial to the success of this project: Balwyn Road and Burke Road.
 
-There are several options outlined in the full report. The preferred option is the installation of new signalised crossings.
+There are several options outlined in the full report. The preferred option is the installation of new signalised crossings, one of which has already been committed as part of the North East Link project (at Balwyn Road). This investment presents an opportunity that should not be missed.
 
 -------------------------
 
