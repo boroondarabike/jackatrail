@@ -4,8 +4,8 @@
     <meta charset='utf-8' />
     <title></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.37.0/mapbox-gl.css' rel='stylesheet' />
+	<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -43,8 +43,8 @@ section:last-child {
 
 <div id='map'></div>
 <div id='features'>
-    <section id='glass-creek-link-overview' class='active'>
-        <h3>Glass Creek Link - Overview</h3>
+    <section id='jacka-trail-overview' class='active'>
+        <h3>Jacka Trail - Overview</h3>
         <p>The Glass Creek Link proposes the creation of a safe and direct north-south bicycle route linking the Koonung Creek and Anniversary Trails. It would serve multiple functions in Kew East, Balwyn and Deepdene including local travel, school transport and recreation.</p>
     </section>
     <section id='anniversary' class='active'>
@@ -96,9 +96,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicGhpbGFtIiwiYSI6ImNpbmk1OGI1MDB3dmt1a20zeDZ5e
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/philam/cj3awvcwk000e2ro1m04r4dqc',
-    center: [145.062743, -37.800653],
-    zoom: 13.8,
+    style: 'mapbox://styles/philam/ckgq3hpzz25px19qhe106db1g',
+    center: [145.0746917, -37.7986494],
+    zoom: 14,
     bearing: 5,
     pitch: 35
 });
